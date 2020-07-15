@@ -1,6 +1,3 @@
-'use strict';
-
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const morganBody = require('morgan-body');
