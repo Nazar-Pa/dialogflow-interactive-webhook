@@ -16,14 +16,14 @@ const androidIntent = (agent) => {
 /**
  * Intent to send UI controls to Android
  */
-// const androidEvent = (agent) => {
-//     const params = { "template": "hyperlink" };
-//     const param_context = { name: "param_context", lifespan: 10, parameters: params };
-//     agent.context.set(param_context);
-//     agent.add('Event captured successfully!');
-// };
+const androidEvent = (agent) => {
+    const params = { "template": "hyperlink" };
+    const param_context = { name: "param_context", lifespan: 10, parameters: params };
+    agent.context.set(param_context);
+    agent.add('Event captured successfully!');
+};
 
 module.exports = {
     androidIntent,
-    //androidEvent
+    androidEvent
 };
