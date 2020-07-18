@@ -15,9 +15,9 @@ const androidIntent = (agent) => {
     agent.add('This is a message section for showing text');
 };
 
-// const getWeather = (agent) => {
-//     agent.add('Tempreature in London is 20 degree');
-// }
+const getWeather = (agent) => {
+    agent.add('Tempreature in London is 20 degree');
+}
 
 /**
  * Intent to send UI controls to Android
@@ -31,6 +31,6 @@ const androidEvent = (agent) => {
 
 module.exports = {
     androidIntent,
-    androidEvent
-    //getWeather
+    androidEvent,
+    getWeather
 };
