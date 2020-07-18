@@ -1,4 +1,4 @@
-'use strict';
+
 
 /**
  * Intent to send UI controls to Android

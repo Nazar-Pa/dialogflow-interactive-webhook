@@ -1,4 +1,4 @@
-'use strict';
+
 
 const { WebhookClient } = require('dialogflow-fulfillment');
 const controller = require('../controller/controller');
