@@ -1,8 +1,10 @@
+'use strict';
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const morganBody = require('morgan-body');
 const morgan = require('morgan');
-
 
 const handler = require('./handler/handler');
 
@@ -28,12 +30,8 @@ app.get('/', (req, res) => {
     res.send('Server running OK');
 });
 
-
-
-
 app.listen(process.env.PORT || 8080, () => {
     console.info(`Assistant webhook listening on port 8080!`);
 });
-
 
 module.exports.app = app;

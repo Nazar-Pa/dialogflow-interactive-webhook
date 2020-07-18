@@ -1,3 +1,5 @@
+'use strict';
+
 const { WebhookClient } = require('dialogflow-fulfillment');
 const controller = require('../controller/controller');
 
@@ -22,6 +24,7 @@ const WebhookProcessor = (req, res) => {
     // Run the proper function handler based on the matched Dialogflow intent name
     intentMap.set('Android Intent', controller.androidIntent);
     intentMap.set('Capture Android Event', controller.androidEvent);
+    intentMap.set('Getweather', controller.getWeather);
 
     agent.handleRequest(intentMap);
 };
