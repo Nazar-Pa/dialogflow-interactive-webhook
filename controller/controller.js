@@ -23,7 +23,7 @@ const getWeather = (agent) => {
  * Intent to send UI controls to Android
  */
 const androidEvent = (agent) => {
-    //const params = { "template": "text" };
+    const params = { "template": "button" };
     const param_context = { name: "param_context", lifespan: 10, parameters: params };
     agent.context.set(param_context);
     agent.add('Event captured successfully!');
