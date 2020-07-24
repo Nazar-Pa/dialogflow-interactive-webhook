@@ -22,9 +22,12 @@ const WebhookProcessor = (req, res) => {
     const intentMap = new Map();
 
     // Run the proper function handler based on the matched Dialogflow intent name
-    intentMap.set('Android Intent', controller.androidIntent);
+    //intentMap.set('Android Intent', controller.androidIntent);
     intentMap.set('Capture Android Event', controller.androidEvent);
     intentMap.set('Getweather', controller.getWeather);
+    intentMap.set('ActivateMotivationIntent', controller.activateMotivation);
+    intentMap.set('Default Welcome Intent', controller.WelcomeIntent);
+    
 
     agent.handleRequest(intentMap);
 };
