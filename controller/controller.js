@@ -39,7 +39,7 @@ const WelcomeIntent = (agent) => {
 const getWeather = (agent) => {
     const params = { "template": "text" };
     const param_context = { name: "param_context", lifespan: 10, parameters: params };
-    agent.context.set(param_context, param_context2);
+    agent.context.set(param_context2);
     agent.add('Tempreature in London is 20 degree');
 };
 
