@@ -44,9 +44,9 @@ const getWeather = (agent) => {
 };
 
 const activateMotivation = (agent) => {
-    //const params = { "template": "text" };
-    //const param_context = { name: "param_context", lifespan: 10, parameters: params };
-    //agent.context.set(param_context);
+    const params = { "template": "text" };
+    const param_context = { name: "param_context3", lifespan: 10, parameters: params };
+    agent.context.set(param_context);
     // randomNum = Math.floor(Math.random()*3);
     for (var a = [0, 1, 2, 3, 4, 6, 7], i = a.length; i--; ) {
         var random = a.splice(Math.floor(Math.random() * (i + 1)), 1)[0];
