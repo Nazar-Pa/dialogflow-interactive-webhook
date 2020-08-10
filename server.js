@@ -22,7 +22,7 @@ const data = [];
 app.post('/webhook', (req, res) => {
     data = req.body;
     
-    //res.send(data);
+    res.send(data);
     //console.info(`\n\n>>>>>>> S E R V E R   H I T <<<<<<<`);
     handler.WebhookProcessor(req, res);
 });
@@ -38,8 +38,8 @@ app.listen(process.env.PORT || 8080, () => {
     console.info(`Assistant webhook listening on port 8080!`);
 });
 
-//module.exports.app = app;
-module.exports = {
-    app,
-    data
-};
+module.exports.app = app;
+// module.exports = {
+//     app,
+//     data
+// };
