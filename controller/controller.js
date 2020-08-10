@@ -1,3 +1,5 @@
+const { request } = require("express");
+
 const motivatioList = ['Motivation 1', 'Motivation 2', 'Motivation 3', , 'Motivation 4', 'Motivation 5', 'Motivation 6', 'Motivation 7', 'Motivation 8'];
 
 // for (var a = [0, 1, 2, 3, 4, 5, 6, 7], i = a.length; i--; ) {
@@ -39,7 +41,7 @@ const WelcomeIntent = (agent) => {
 };
 
 const getWeather = (agent) => {
-    const text = req.body.queryResult.queryText;
+    const text = request.body.queryResult.queryText;
     const params = { "template": "text" };
     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
     agent.context.set(param_context);
