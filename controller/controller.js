@@ -43,8 +43,7 @@ const getWeather = (agent) => {
     //const textString = text.toString();
     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
     agent.context.set(param_context);
-    console.log(text);
-    agent.add(`Sure, please fill out the below to save your activity...${text}`);
+    agent.add("Sure, please fill out the below to save your activity...");
 };
 
 const activateMotivation = (agent) => {
