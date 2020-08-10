@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/webhook', (req, res) => {
     const data = req.body;
     console.log(data);
-    //res.send(data);
+    res.send(data);
     //console.info(`\n\n>>>>>>> S E R V E R   H I T <<<<<<<`);
     handler.WebhookProcessor(req, res);
 });
