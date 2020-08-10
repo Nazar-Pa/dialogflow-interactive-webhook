@@ -39,7 +39,7 @@ const WelcomeIntent = (agent) => {
 };
 
 const getWeather = (agent) => {
-    const text = request.body.queryResult.queryText;
+    const text = req.body.queryResult.queryText;
     const params = { "template": "text" };
     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
     agent.context.set(param_context);
