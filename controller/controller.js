@@ -39,10 +39,11 @@ const WelcomeIntent = (agent) => {
 };
 
 const getWeather = (agent) => {
+    const text = req.body.queryResult.queryText;
     const params = { "template": "text" };
     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
     agent.context.set(param_context);
-    agent.add('Sure, please fill out the below to save your activity');
+    agent.add(text);
 };
 
 const activateMotivation = (agent) => {
