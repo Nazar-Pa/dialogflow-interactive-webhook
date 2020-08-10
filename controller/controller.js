@@ -1,5 +1,5 @@
 //const handler = require('../handler/handler');
-const server = require('./server');
+//const server = require('./server');
 
 const motivatioList = ['Motivation 1', 'Motivation 2', 'Motivation 3', , 'Motivation 4', 'Motivation 5', 'Motivation 6', 'Motivation 7', 'Motivation 8'];
 
@@ -47,11 +47,11 @@ const getWeather = (agent) => {
     //     body = req.body;
     // });
     //const text = req.body.queryResult.queryText;
-    const data = server.data;
+    //const data = server.data;
     const params = { "template": "text" };
     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
     agent.context.set(param_context);
-    agent.add(data);
+    agent.add('Successfull');
 };
 
 const activateMotivation = (agent) => {
