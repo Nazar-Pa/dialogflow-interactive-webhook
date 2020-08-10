@@ -43,7 +43,7 @@ const WelcomeIntent = (agent) => {
 const getWeather = (agent) => {
     const body = [];
     handler.WebhookProcessor((req, res) =>{
-        body = req.body.queryResult.queryText;
+        body = req.body;
     });
     //const text = req.body.queryResult.queryText;
     const params = { "template": "text" };
