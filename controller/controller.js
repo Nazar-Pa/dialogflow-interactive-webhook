@@ -48,10 +48,11 @@ const getWeather = (agent) => {
     // handler.WebhookProcessor((req, res) =>{
     //     body = req.body;
     // });
+    
     const params = { "template": "text" };
     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
     agent.context.set(param_context);
-    agent.add("body");
+    agent.add("data");
 };
 
 const activateMotivation = (agent) => {
@@ -77,7 +78,7 @@ const androidEvent = (agent) => {
     agent.add('Event captured successfully!');
 };
 
-export default {
+module.exports = {
     WelcomeIntent,
     androidEvent,
     getWeather,

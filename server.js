@@ -18,11 +18,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 /*
 * Webhook to be exposed for fulfillment in dialogflow
 */
-const data = [];
+//const data = [];
 app.post('/webhook', (req, res) => {
-    data = req.body;
+    //data = req.body;
     
-    res.send(data);
+    //res.send(data);
     //console.info(`\n\n>>>>>>> S E R V E R   H I T <<<<<<<`);
     handler.WebhookProcessor(req, res);
 });
