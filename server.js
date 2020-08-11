@@ -52,19 +52,19 @@ app.post('/webhook', (req, res) => {
                     const calories = response.data.foods[0].nf_calories;
                     
                     const result = `${serving_qty}  ${serving_unit} ${food_name} is ${calories}`;
-                    //console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
+                    console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
                     //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
-                    const params = { "template": "text" };
-                    const param_context = { name: "param_context2", lifespan: 10, parameters: params };
-                    agent.context.set(param_context);
-                    agent.add("result");
+                    
                 })
                 .catch((err) => console.log(err))
         }
         catch {
             res.send('error');
         }
-        
+        const params = { "template": "text" };
+        const param_context = { name: "param_context2", lifespan: 10, parameters: params };
+        agent.context.set(param_context);
+        agent.add("result");
     };
     const intentMap = new Map();
 
