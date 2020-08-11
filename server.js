@@ -35,8 +35,8 @@ app.post('/webhook', (req, res) => {
         try {
             await axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients',
             {
-                //"query":"for breakfast i ate 2 eggs, bacon, and french toast",
-                "query": data,
+                "query": "for breakfast i ate 2 eggs, bacon, and french toast",
+                //"query": data,
                 "timezone": "US/Eastern"
                },
             { 
