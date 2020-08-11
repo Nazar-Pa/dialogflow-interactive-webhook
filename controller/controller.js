@@ -1,5 +1,5 @@
 //const handler = require('../handler/handler');
-const server = require('./server');
+const server = require('server');
 //const { WebhookClient } = require('dialogflow-fulfillment');
 
 
