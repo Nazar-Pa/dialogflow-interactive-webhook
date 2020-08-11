@@ -56,19 +56,17 @@ app.post('/webhook', (req, res) => {
                     console.log("succesfull")
                     const result = "result successfull";
                     // console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
-                    // //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);     
-                    
-                    
-                    const params = { "template": "text" };
-                    const param_context = { name: "param_context2", lifespan: 10, parameters: params };
-                    agent.context.set(param_context);
-                    agent.add("result successfull");
+                    // //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);    
                 })
                 .catch((err) => console.log("unsuccesfull"))
         }
         catch {
             console.log('error');
         }
+        const params = { "template": "text" };
+        const param_context = { name: "param_context2", lifespan: 10, parameters: params };
+        agent.context.set(param_context);
+        agent.add("result successfull");
     };
     const intentMap = new Map();
 
