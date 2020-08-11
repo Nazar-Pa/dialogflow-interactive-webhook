@@ -28,16 +28,24 @@ app.post('/webhook', async (req, res) => {
      * @param {Object} options.response Express HTTP response object
      */
     const globalAgent = new WebhookClient({ request: req, response: res });
-    //const query = req.body.queryResult.queryText;
+    const query = req.body.queryResult.queryText;
     
     const getWeather = async (localAgent) => {
+        const params = { "template": "text" };
+        const param_context = { name: "param_context2", lifespan: 10, parameters: params };
+        localAgent.context.set(param_context);
+        localAgent.add(result);
+    };
+
+
+    const getCalories = async (localAgent) => {
         let result;
 
         try {
             await axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients',
             {
-                "query": "for breakfast i ate 2 eggs, bacon, and french toast",
-                //"query": query,
+                //"query": "for breakfast i ate 2 eggs, bacon, and french toast",
+                "query": query,
                 "timezone": "US/Eastern"
                },
             { 
@@ -62,16 +70,18 @@ app.post('/webhook', async (req, res) => {
             console.log('error');   
         }
         const params = { "template": "text" };
-        const param_context = { name: "param_context2", lifespan: 10, parameters: params };
+        const param_context = { name: "param_context3", lifespan: 10, parameters: params };
         localAgent.context.set(param_context);
         localAgent.add(result);
     };
+
     const intentMap = new Map();
 
     // Run the proper function handler based on the matched Dialogflow intent name
     //intentMap.set('Android Intent', controller.androidIntent);
     //intentMap.set('Capture Android Event', controller.androidEvent);
     intentMap.set('Getweather', getWeather);
+    intentMap.set('getCalories', getCalories);
     //intentMap.set('ActivateMotivationIntent', controller.activateMotivation);
     //intentMap.set('Default Welcome Intent', controller.WelcomeIntent);
     
