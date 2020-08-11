@@ -59,7 +59,7 @@ app.post('/webhook', (req, res) => {
                 .catch((err) => console.log(err))
         }
         catch {
-            res.send('error');
+            console.log('error');
         }
         const params = { "template": "text" };
         const param_context = { name: "param_context2", lifespan: 10, parameters: params };
