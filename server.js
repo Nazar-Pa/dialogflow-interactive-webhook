@@ -51,17 +51,17 @@ app.post('/webhook', async (req, res) => {
                     const calories = response.data.foods[0].nf_calories;
                     
                     // console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
-                    // //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);   
-                    const params = { "template": "text" };
-                    const param_context = { name: "param_context2", lifespan: 10, parameters: params };
-                    localAgent.context.set(param_context);
-                    localAgent.add("food_name"); 
+                    // //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);    
                 })
                 .catch((err) => {console.log(err)})
         }
         catch {
             console.log('error');   
         }
+        const params = { "template": "text" };
+        const param_context = { name: "param_context2", lifespan: 10, parameters: params };
+        localAgent.context.set(param_context);
+        localAgent.add("food_name");
     };
     const intentMap = new Map();
 
