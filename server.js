@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const morganBody = require('morgan-body');
 const morgan = require('morgan');
 const { WebhookClient } = require('dialogflow-fulfillment');
+const axios = require('axios');
 
 const handler = require('./handler/handler');
 
@@ -30,6 +31,7 @@ app.post('/webhook', async (req, res) => {
     //const query = req.body.queryResult.queryText;
     
     const getWeather = async (localAgent) => {
+        let result;
 
         try {
             await axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients',
@@ -49,6 +51,7 @@ app.post('/webhook', async (req, res) => {
                     const serving_qty = response.data.foods[0].serving_qty;
                     const serving_unit = response.data.foods[0].serving_unit;
                     const calories = response.data.foods[0].nf_calories;
+                    result = food_name;
                     
                     // console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
                     // //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);    
@@ -61,7 +64,7 @@ app.post('/webhook', async (req, res) => {
         const params = { "template": "text" };
         const param_context = { name: "param_context2", lifespan: 10, parameters: params };
         localAgent.context.set(param_context);
-        localAgent.add("food_name");
+        localAgent.add(result);
     };
     const intentMap = new Map();
 
