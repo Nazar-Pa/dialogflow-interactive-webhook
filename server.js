@@ -22,14 +22,6 @@ app.post('/webhook', (req, res) => {
     
     //res.send(data);
     //console.info(`\n\n>>>>>>> S E R V E R   H I T <<<<<<<`);
-    /**
- * Function to initialize WebhookClient to handle the communication with Dialogflow's webhook
- * and to map the incoming intent to specific fulfillmentController
- * @param {Object} req Express HTTP request object
- * @param {Object} res Express HTTP response object
- */
-
-const WebhookProcessor = (req, res) => {
 
     /**
      * Constructor for WebhookClient object
@@ -60,7 +52,6 @@ const WebhookProcessor = (req, res) => {
     
 
     agent.handleRequest(intentMap);
-};
 });
 
 // GET
