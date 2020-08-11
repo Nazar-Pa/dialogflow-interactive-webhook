@@ -48,15 +48,10 @@ const getWeather = (agent) => {
     // handler.WebhookProcessor((req, res) =>{
     //     body = req.body;
     // });
-    //const text = req.body.queryResult.queryText;
-    const body = [];
-export const dialogflowFirebaseFulfillment = functions.https.onRequest((request, response) => {
-    body = request.body.queryResult.queryText;
-});
     const params = { "template": "text" };
     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
     agent.context.set(param_context);
-    agent.add(body);
+    agent.add("body");
 };
 
 const activateMotivation = (agent) => {
