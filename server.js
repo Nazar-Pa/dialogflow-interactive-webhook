@@ -57,13 +57,11 @@ app.post('/webhook', async (req, res) => {
      */
     const agent = new WebhookClient({ request: req, response: res });
     //const query = req.body.queryResult.queryText;
-    const getWeather = async (agent) => {
-        
-        
+    const getWeather = (agent) => {
         const params = { "template": "text" };
         const param_context = { name: "param_context2", lifespan: 10, parameters: params };
         agent.context.set(param_context);
-        agent.add(result);
+        agent.add(res.data);
     };
     const intentMap = new Map();
 
