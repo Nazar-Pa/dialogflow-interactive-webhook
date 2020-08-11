@@ -30,16 +30,41 @@ app.post('/webhook', (req, res) => {
      * @param {Object} options.response Express HTTP response object
      */
     const agent = new WebhookClient({ request: req, response: res });
-
+    
     const getWeather = (agent) => {
-        // handler.WebhookProcessor((req, res) =>{
-        //     data = req.body.queryResult.queryText;
-        // });
-        //const data = req.body.queryResult.queryText;
+        const result = [];
+        try {
+            await axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients',
+            {
+                //"query":"for breakfast i ate 2 eggs, bacon, and french toast",
+                "query": data,
+                "timezone": "US/Eastern"
+               },
+            { 
+                headers: {
+                "Content-Type": "application/json", 
+                "x-app-id": "45d558a8", 
+                "x-app-key": "283a05f63e61bb5c305979fdfca57b28"
+            }
+            }).then(response => {
+                    const food_name = response.data.foods[0].food_name;
+                    const serving_qty = response.data.foods[0].serving_qty;
+                    const serving_unit = response.data.foods[0].serving_unit;
+                    const calories = response.data.foods[0].nf_calories;
+                    //const string = temp.fields.nf_calories;
+                    result = `${serving_qty}  ${serving_unit} ${food_name} is ${calories}`;
+                    //console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
+                    //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
+                })
+                .catch((err) => console.log(err))
+        }
+        catch {
+            res.send('error');
+        }
         const params = { "template": "text" };
         const param_context = { name: "param_context2", lifespan: 10, parameters: params };
         agent.context.set(param_context);
-        agent.add(data);
+        agent.add(result);
     };
     const intentMap = new Map();
 
