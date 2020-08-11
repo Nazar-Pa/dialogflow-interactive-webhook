@@ -32,7 +32,7 @@ app.post('/webhook', (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
     
     const getWeather = async (agent) => {
-        const result = [];
+        let result = [];
         try {
             //const result = [];
             await axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients',
