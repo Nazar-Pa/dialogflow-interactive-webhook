@@ -34,7 +34,7 @@ app.post('/webhook', (req, res) => {
     const getWeather = async (agent) => {
         
         try {
-            const result = [];
+            //const result = [];
             await axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients',
             {
                 "query": "for breakfast i ate 2 eggs, bacon, and french toast",
@@ -56,6 +56,10 @@ app.post('/webhook', (req, res) => {
                     //result = "result successfull";
                     console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
                     //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
+                    const params = { "template": "text" };
+                    const param_context = { name: "param_context2", lifespan: 10, parameters: params };
+                    agent.context.set(param_context);
+                    agent.add("result successfull");
                     
                 })
                 .catch((err) => console.log(err))
@@ -63,10 +67,7 @@ app.post('/webhook', (req, res) => {
         catch {
             console.log('error');
         }
-        const params = { "template": "text" };
-        const param_context = { name: "param_context2", lifespan: 10, parameters: params };
-        agent.context.set(param_context);
-        agent.add("result successfull");
+        
     };
     const intentMap = new Map();
 
