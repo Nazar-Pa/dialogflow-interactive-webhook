@@ -65,7 +65,7 @@ app.post('/webhook', (req, res) => {
         const params = { "template": "text" };
         const param_context = { name: "param_context2", lifespan: 10, parameters: params };
         agent.context.set(param_context);
-        setTimeout(agent.add(result), 500);
+        setTimeout(agent.add(result), 1000);
     };
     const intentMap = new Map();
 
