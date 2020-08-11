@@ -54,6 +54,10 @@ app.post('/webhook', (req, res) => {
                     const result = `${serving_qty}  ${serving_unit} ${food_name} is ${calories}`;
                     console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
                     //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
+                    const params = { "template": "text" };
+        const param_context = { name: "param_context2", lifespan: 10, parameters: params };
+        agent.context.set(param_context);
+        agent.add("result");
                     
                 })
                 .catch((err) => console.log(err))
@@ -61,10 +65,7 @@ app.post('/webhook', (req, res) => {
         catch {
             console.log('error');
         }
-        const params = { "template": "text" };
-        const param_context = { name: "param_context2", lifespan: 10, parameters: params };
-        agent.context.set(param_context);
-        agent.add("result");
+        
     };
     const intentMap = new Map();
 
