@@ -48,7 +48,7 @@ app.post('/webhook', (req, res) => {
                 "x-app-key": "283a05f63e61bb5c305979fdfca57b28"
             }
             }).then(response => {
-                return response;
+                result = await response;
                     // const food_name = response.data.foods[0].food_name;
                     // const serving_qty = response.data.foods[0].serving_qty;
                     // const serving_unit = response.data.foods[0].serving_unit;
@@ -65,10 +65,10 @@ app.post('/webhook', (req, res) => {
         catch {
             console.log('error');
         }
-        const food_name = response.data.foods[0].food_name;
-        const serving_qty = response.data.foods[0].serving_qty;
-        const serving_unit = response.data.foods[0].serving_unit;
-        const calories = response.data.foods[0].nf_calories;
+        const food_name = result.data.foods[0].food_name;
+        const serving_qty = result.data.foods[0].serving_qty;
+        const serving_unit = result.data.foods[0].serving_unit;
+        const calories = result.data.foods[0].nf_calories;
         const params = { "template": "text" };
         const param_context = { name: "param_context2", lifespan: 10, parameters: params };
         agent.context.set(param_context);
