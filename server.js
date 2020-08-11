@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 * Webhook to be exposed for fulfillment in dialogflow
 */
 
-app.post('/webhook', (req, res) => {
+app.post('/webhook', async (req, res) => {
     //const data = req.body.queryResult.queryText;
     
     //res.send(data);
@@ -30,14 +30,14 @@ app.post('/webhook', (req, res) => {
      * @param {Object} options.response Express HTTP response object
      */
     const agent = new WebhookClient({ request: req, response: res });
-    let result = "result empty";
+    const query = req.body.queryResult.queryText;
     const getWeather = async (agent) => {
         
         try {
             await axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients',
             {
-                "query": "for breakfast i ate 2 eggs, bacon, and french toast",
-                //"query": data,
+                //"query": "for breakfast i ate 2 eggs, bacon, and french toast",
+                "query": query,
                 "timezone": "US/Eastern"
                },
             { 
@@ -51,24 +51,21 @@ app.post('/webhook', (req, res) => {
                     const serving_qty = response.data.foods[0].serving_qty;
                     const serving_unit = response.data.foods[0].serving_unit;
                     const calories = response.data.foods[0].nf_calories;
-                    result = result + "succesfull"
+                    res.send(response.data.foods[0].food_name);
                     
                     // console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
                     // //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);    
                 })
-                .catch((err) => {
-                    console.log(err)
-                    result = result + "error await"
+                .catch((err) => {console.log(err)
                 })
         }
         catch {
-            console.log('error');
-            result = result + "error catch"
+            console.log('error');   
         }
-        const params = { "template": "text" };
-        const param_context = { name: "param_context2", lifespan: 10, parameters: params };
-        agent.context.set(param_context);
-        agent.add(result);
+        // const params = { "template": "text" };
+        // const param_context = { name: "param_context2", lifespan: 10, parameters: params };
+        // agent.context.set(param_context);
+        // agent.add(result);
     };
     const intentMap = new Map();
 
