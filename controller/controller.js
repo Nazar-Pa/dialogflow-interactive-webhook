@@ -1,4 +1,4 @@
-//const handler = require('../handler/handler');
+const handler = require('../handler/handler');
 //const server = require('./server');
 //const { WebhookClient } = require('dialogflow-fulfillment');
 
@@ -44,11 +44,11 @@ const WelcomeIntent = (agent) => {
 };
 
 const getWeather = (agent) => {
-    // const body = [];
-    // handler.WebhookProcessor((req, res) =>{
-    //     body = req.body;
-    // });
-    const data = req.body.queryResult.queryText;
+    const data = [];
+    handler.WebhookProcessor((req, res) =>{
+        data = req.body.queryResult.queryText;
+    });
+    //const data = req.body.queryResult.queryText;
     const params = { "template": "text" };
     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
     agent.context.set(param_context);
