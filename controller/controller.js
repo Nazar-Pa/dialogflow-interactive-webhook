@@ -50,7 +50,7 @@ const getWeather = (agent) => {
     const params = { "template": "text" };
     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
     agent.context.set(param_context);
-    agent.add(body);
+    agent.add("body");
 };
 
 const activateMotivation = (agent) => {
