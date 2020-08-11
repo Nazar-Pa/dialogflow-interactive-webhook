@@ -1,5 +1,4 @@
 //const handler = require('../handler/handler');
-const server = require('server');
 //const { WebhookClient } = require('dialogflow-fulfillment');
 
 
@@ -44,7 +43,6 @@ const WelcomeIntent = (agent) => {
 };
 
 const getWeather = (agent) => {
-    const body = server.data;
     // handler.WebhookProcessor((req, res) =>{
     //     data = req.body.queryResult.queryText;
     // });
