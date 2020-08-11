@@ -56,21 +56,21 @@ app.post('/webhook', async (req, res) => {
      * @param {Object} options.response Express HTTP response object
      */
     const agent = new WebhookClient({ request: req, response: res });
-    const query = req.body.queryResult.queryText;
+    //const query = req.body.queryResult.queryText;
     const getWeather = async (agent) => {
         
         
-        // const params = { "template": "text" };
-        // const param_context = { name: "param_context2", lifespan: 10, parameters: params };
-        // agent.context.set(param_context);
-        // agent.add(result);
+        const params = { "template": "text" };
+        const param_context = { name: "param_context2", lifespan: 10, parameters: params };
+        agent.context.set(param_context);
+        agent.add(result);
     };
     const intentMap = new Map();
 
     // Run the proper function handler based on the matched Dialogflow intent name
     //intentMap.set('Android Intent', controller.androidIntent);
     //intentMap.set('Capture Android Event', controller.androidEvent);
-    //intentMap.set('Getweather', getWeather);
+    intentMap.set('Getweather', getWeather);
     //intentMap.set('ActivateMotivationIntent', controller.activateMotivation);
     //intentMap.set('Default Welcome Intent', controller.WelcomeIntent);
     
