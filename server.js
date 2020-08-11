@@ -56,10 +56,14 @@ app.post('/webhook', (req, res) => {
                     // console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
                     // //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);    
                 })
-                .catch((err) => console.log(err))
+                .catch((err) => {
+                    console.log(err)
+                    result = "result error await"
+                })
         }
         catch {
             console.log('error');
+            result = "result error catch"
         }
         const params = { "template": "text" };
         const param_context = { name: "param_context2", lifespan: 10, parameters: params };
