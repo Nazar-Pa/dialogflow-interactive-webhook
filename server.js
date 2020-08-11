@@ -53,6 +53,7 @@ app.post('/webhook', (req, res) => {
                     const serving_unit = response.data.foods[0].serving_unit;
                     const calories = response.data.foods[0].nf_calories;
                     
+                    console.log("succesfull")
                     const result = "result successfull";
                     // console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
                     // //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);     
@@ -61,9 +62,9 @@ app.post('/webhook', (req, res) => {
                     const params = { "template": "text" };
                     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
                     agent.context.set(param_context);
-                    agent.add(result);
+                    agent.add("result successfull");
                 })
-                .catch((err) => console.log(err))
+                .catch((err) => console.log("unsuccesfull"))
         }
         catch {
             console.log('error');
