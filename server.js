@@ -48,7 +48,7 @@ app.post('/webhook', (req, res) => {
                 "x-app-key": "283a05f63e61bb5c305979fdfca57b28"
             }
             }).then(response => {
-                result = await response;
+                result = response;
                     // const food_name = response.data.foods[0].food_name;
                     // const serving_qty = response.data.foods[0].serving_qty;
                     // const serving_unit = response.data.foods[0].serving_unit;
