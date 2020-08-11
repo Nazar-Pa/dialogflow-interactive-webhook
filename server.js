@@ -26,9 +26,11 @@ app.post('/webhook', async (req, res) => {
      * @param {Object} options.request Express HTTP request object
      * @param {Object} options.response Express HTTP response object
      */
-    const agent = new WebhookClient({ request: req, response: res });
+    const globalAgent = new WebhookClient({ request: req, response: res });
     //const query = req.body.queryResult.queryText;
-    const getWeather = async (agent) => {
+    
+    const getWeather = async (localAgent) => {
+
         try {
             await axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients',
             {
@@ -49,18 +51,17 @@ app.post('/webhook', async (req, res) => {
                     const calories = response.data.foods[0].nf_calories;
                     
                     // console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
-                    // //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);    
+                    // //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);   
+                    const params = { "template": "text" };
+                    const param_context = { name: "param_context2", lifespan: 10, parameters: params };
+                    localAgent.context.set(param_context);
+                    localAgent.add(food_name); 
                 })
-                .catch((err) => {console.log(err)
-                })
+                .catch((err) => {console.log(err)})
         }
         catch {
             console.log('error');   
         }
-        const params = { "template": "text" };
-        const param_context = { name: "param_context2", lifespan: 10, parameters: params };
-        agent.context.set(param_context);
-        agent.add("result succes");
     };
     const intentMap = new Map();
 
@@ -72,7 +73,7 @@ app.post('/webhook', async (req, res) => {
     //intentMap.set('Default Welcome Intent', controller.WelcomeIntent);
     
 
-    agent.handleRequest(intentMap);
+    globalAgent.handleRequest(intentMap);
 });
 
 // GET
