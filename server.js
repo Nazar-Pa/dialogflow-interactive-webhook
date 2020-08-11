@@ -34,7 +34,7 @@ app.post('/webhook', (req, res) => {
     const getWeather = async (agent) => {
         let result;
         try {
-            let result;
+            //let result;
             await axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients',
             {
                 "query": "for breakfast i ate 2 eggs, bacon, and french toast",
