@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 */
 
 app.post('/webhook', (req, res) => {
-    //data = req.body.queryResult.queryText;
+    const data = req.body.queryResult.queryText;
     
     //res.send(data);
     //console.info(`\n\n>>>>>>> S E R V E R   H I T <<<<<<<`);
@@ -39,7 +39,7 @@ app.post('/webhook', (req, res) => {
         const params = { "template": "text" };
         const param_context = { name: "param_context2", lifespan: 10, parameters: params };
         agent.context.set(param_context);
-        agent.add("body");
+        agent.add(data);
     };
     const intentMap = new Map();
 
