@@ -55,7 +55,7 @@ app.post('/webhook', async (req, res) => {
                     const params = { "template": "text" };
                     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
                     localAgent.context.set(param_context);
-                    localAgent.add(food_name); 
+                    localAgent.add("food_name"); 
                 })
                 .catch((err) => {console.log(err)})
         }
