@@ -75,7 +75,7 @@ app.post('/webhook', async (req, res) => {
 
 //     //const params = { "template": "text" };
 //     const params = {
-//         "template": "button", "buttonItems": [{ "uiText": "Give motivation", "actionText": "action 1 selected", "isPositive": false },
+//         "template": "button", "buttonItems": [{ "uiText": "Action 1", "actionText": "action 1 selected", "isPositive": false },
 //         { "uiText": "Action 2", "actionText": "action 2 selected", "isPositive": false }, { "uiText": "Action 3", "actionText": "action 3 selected", "isPositive": false },
 //         { "uiText": "Action 4", "actionText": "action 4 selected", "isPositive": false }], "align": "v", "size": "s", "eventToCall": "android_event"
 //     };
