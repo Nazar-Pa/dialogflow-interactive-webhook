@@ -59,7 +59,7 @@ app.post('/webhook', async (req, res) => {
                     const serving_qty = response.data.foods[0].serving_qty;
                     const serving_unit = response.data.foods[0].serving_unit;
                     const calories = response.data.foods[0].nf_calories;
-                    result = food_name;
+                    result = `${serving_qty}  ${serving_unit} ${food_name} is ${calories} calories`;
                     
                     // console.log(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);
                     // //res.send(`${serving_qty}  ${serving_unit} ${food_name} is ${calories}`);    
