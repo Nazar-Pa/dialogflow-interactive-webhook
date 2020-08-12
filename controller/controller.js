@@ -1,7 +1,7 @@
 // //const handler = require('../handler/handler');
 // //const { WebhookClient } = require('dialogflow-fulfillment');
 
-
+// // 
 // const motivatioList = ['Motivation 1', 'Motivation 2', 'Motivation 3', , 'Motivation 4', 'Motivation 5', 'Motivation 6', 'Motivation 7', 'Motivation 8'];
 
 // // for (var a = [0, 1, 2, 3, 4, 5, 6, 7], i = a.length; i--; ) {
