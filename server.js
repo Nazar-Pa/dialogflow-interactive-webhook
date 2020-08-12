@@ -111,6 +111,19 @@ const androidEvent = (agent) => {
 };
 
 
+const activateMotivation = (agent) => {
+    const params = { "template": "text" };
+    const param_context = { name: "param_context6", lifespan: 10, parameters: params };
+    agent.context.set(param_context);
+    // randomNum = Math.floor(Math.random()*3);
+    for (var a = [0, 1, 2, 3, 4, 6, 7], i = a.length; i--;) {
+        var random = a.splice(Math.floor(Math.random() * (i + 1)), 1)[0];
+
+    }
+    const motivation = motivatioList[random]
+    agent.add(JSON.stringify(motivation));
+};
+
 
 
 
@@ -122,7 +135,7 @@ const androidEvent = (agent) => {
     intentMap.set('Capture Android Event', androidEvent);
     intentMap.set('Getweather', getWeather);
     intentMap.set('getCalories', getCalories);
-    //intentMap.set('ActivateMotivationIntent', controller.activateMotivation);
+    intentMap.set('ActivateMotivationIntent', activateMotivation);
     intentMap.set('Default Welcome Intent', WelcomeIntent);
     
     agent.handleRequest(intentMap);
