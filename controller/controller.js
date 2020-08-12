@@ -43,10 +43,6 @@
 // };
 
 // const getWeather = (agent) => {
-//     // handler.WebhookProcessor((req, res) =>{
-//     //     data = req.body.queryResult.queryText;
-//     // });
-//     //const data = req.body.queryResult.queryText;
 //     const params = { "template": "text" };
 //     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
 //     agent.context.set(param_context);

@@ -27,18 +27,18 @@ app.post('/webhook', async (req, res) => {
      * @param {Object} options.request Express HTTP request object
      * @param {Object} options.response Express HTTP response object
      */
-    const globalAgent = new WebhookClient({ request: req, response: res });
+    const agent = new WebhookClient({ request: req, response: res });
     const query = req.body.queryResult.queryText;
     
-    const getWeather = async (localAgent) => {
+    const getWeather = async (agent) => {
         const params = { "template": "text" };
         const param_context = { name: "param_context2", lifespan: 10, parameters: params };
-        localAgent.context.set(param_context);
-        localAgent.add(result);
+        agent.context.set(param_context);
+        agent.add(result);
     };
 
 
-    const getCalories = async (localAgent) => {
+    const getCalories = async (agent) => {
         let result;
 
         try {
@@ -71,8 +71,8 @@ app.post('/webhook', async (req, res) => {
         }
         const params = { "template": "text" };
         const param_context = { name: "param_context3", lifespan: 10, parameters: params };
-        localAgent.context.set(param_context);
-        localAgent.add(result);
+        agent.context.set(param_context);
+        agent.add(result);
     };
 
     const intentMap = new Map();
@@ -86,7 +86,7 @@ app.post('/webhook', async (req, res) => {
     //intentMap.set('Default Welcome Intent', controller.WelcomeIntent);
     
 
-    globalAgent.handleRequest(intentMap);
+    agent.handleRequest(intentMap);
 });
 
 // GET
