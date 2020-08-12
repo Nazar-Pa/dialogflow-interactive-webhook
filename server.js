@@ -112,6 +112,8 @@ const androidEvent = (agent) => {
 
 
 const activateMotivation = (agent) => {
+    const motivatioList = ['Motivation 1', 'Motivation 2', 'Motivation 3', , 'Motivation 4', 'Motivation 5', 'Motivation 6', 'Motivation 7', 'Motivation 8'];
+
     const params = { "template": "text" };
     const param_context = { name: "param_context6", lifespan: 10, parameters: params };
     agent.context.set(param_context);
