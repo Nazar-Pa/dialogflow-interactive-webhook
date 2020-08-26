@@ -126,7 +126,19 @@ const activateMotivation = (agent) => {
     agent.add(JSON.stringify(motivation));
 };
 
+const MyProgress = (agent) => {
+    const params = { "template": "text" };
+    const param_context = { name: "param_context7", lifespan: 10, parameters: params };
+    agent.context.set(param_context);
+    agent.add("Your progress is showing");
+}
 
+const getSteps = (agent) => {
+    const params = { "template": "text" };
+    const param_context = { name: "param_context8", lifespan: 10, parameters: params };
+    agent.context.set(param_context);
+    agent.add("Your progress is showing");
+}
 
 
 
@@ -139,6 +151,8 @@ const activateMotivation = (agent) => {
     intentMap.set('getCalories', getCalories);
     intentMap.set('ActivateMotivationIntent', activateMotivation);
     intentMap.set('Default Welcome Intent', WelcomeIntent);
+    intentMap.set('myProgress', MyProgress);
+    intentMap.set('getSteps', getSteps);
     
     agent.handleRequest(intentMap);
 });
