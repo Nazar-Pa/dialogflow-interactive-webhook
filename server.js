@@ -137,7 +137,7 @@ const getSteps = (agent) => {
     const params = { "template": "text" };
     const param_context = { name: "param_context8", lifespan: 10, parameters: params };
     agent.context.set(param_context);
-    agent.add("Your progress is showing");
+    agent.add("You reached 1763 steps for today");
 }
 
 
