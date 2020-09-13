@@ -25,12 +25,20 @@ app.post('/webhook', async (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
     const query = req.body.queryResult.queryText;
     
-    const getWeather = async (agent) => {
+    const addActivity = async (agent) => {
         const params = { "template": "text" };
         const param_context = { name: "param_context4", lifespan: 10, parameters: params };
         agent.context.set(param_context);
         agent.add("Sure please fill out");
     };
+
+
+    const addFoodEntry = async (agent) =>{
+        const params = { "template": "text" };
+        const param_context = { name: "param_context9", lifespan: 10, parameters: params };
+        agent.context.set(param_context);
+        agent.add("Sure please fill out");
+    }
 
 
     const getCalories = async (agent) => {
@@ -147,12 +155,13 @@ const getSteps = (agent) => {
     
     intentMap.set('Android Intent', androidIntent);
     intentMap.set('Capture Android Event', androidEvent);
-    intentMap.set('Getweather', getWeather);
+    intentMap.set('AddActivity', addActivity);
     intentMap.set('getCalories', getCalories);
     intentMap.set('ActivateMotivationIntent', activateMotivation);
     intentMap.set('Default Welcome Intent', WelcomeIntent);
     intentMap.set('myProgress', MyProgress);
     intentMap.set('getSteps', getSteps);
+    intentMap.set('AddFoodEntry', addFoodEntry);
     
     agent.handleRequest(intentMap);
 });
