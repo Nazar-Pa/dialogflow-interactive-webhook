@@ -34,10 +34,11 @@ app.post('/webhook', async (req, res) => {
 
 
     const addFoodEntry = async (agent) =>{
+        let portion = agent.parameters.portion;
         const params = { "template": "text" };
         const param_context = { name: "param_context9", lifespan: 10, parameters: params };
         agent.context.set(param_context);
-        agent.add("Sure please fill out");
+        agent.add(`The portion is: ${portion}`);
     }
 
 
