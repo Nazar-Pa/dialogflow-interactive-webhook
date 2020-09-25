@@ -38,7 +38,7 @@ app.post('/webhook', async (req, res) => {
         const params = { "template": "text" };
         const param_context = { name: "param_context9", lifespan: 1, parameters: params };
         agent.context.set(param_context);
-        agent.add(`The portion is: ${portion}`);
+        //agent.add(`The portion is: ${portion}`);
     }
 
 
