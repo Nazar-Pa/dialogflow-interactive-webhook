@@ -154,7 +154,7 @@ const getSteps = (agent) => {
 
     const intentMap = new Map();
     
-    intentMap.set('Android Intent', androidIntent);
+    intentMap.set('AndroidIntent', androidIntent);
     intentMap.set('Capture Android Event', androidEvent);
     intentMap.set('AddActivity', addActivity);
     intentMap.set('getCalories', getCalories);
