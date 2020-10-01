@@ -138,7 +138,14 @@ const MyFoodProgress = (agent) => {
     const params = { "template": "text" };
     const param_context = { name: "param_context7", lifespan: 10, parameters: params };
     agent.context.set(param_context);
-    agent.add("Your progress is showing");
+    agent.add("Your food progress is showing");
+}
+
+const mypActivityrogress = (agent){
+    const params = { "template": "text" };
+    const param_context = { name: "param_context10", lifespan: 10, parameters: params };
+    agent.context.set(param_context);
+    agent.add("Your activity progress is showing");
 }
 
 const getSteps = (agent) => {
@@ -160,6 +167,7 @@ const getSteps = (agent) => {
     intentMap.set('ActivateMotivationIntent', activateMotivation);
     intentMap.set('Default Welcome Intent', WelcomeIntent);
     intentMap.set('myFoodProgress', MyFoodProgress);
+    intentMap.set('mypActivityrogress', mypActivityrogress);
     intentMap.set('getSteps', getSteps);
     intentMap.set('AddFoodEntry', addFoodEntry);
     
