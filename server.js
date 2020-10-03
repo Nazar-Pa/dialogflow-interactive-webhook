@@ -134,7 +134,7 @@ const activateMotivation = (agent) => {
     agent.add(JSON.stringify(motivation));
 };
 
-const MyFoodProgress = (agent) => {
+const myFoodProgress = (agent) => {
     const params = { "template": "text" };
     const param_context = { name: "param_context7", lifespan: 10, parameters: params };
     agent.context.set(param_context);
@@ -166,8 +166,8 @@ const getSteps = (agent) => {
     intentMap.set('getCalories', getCalories);
     intentMap.set('ActivateMotivationIntent', activateMotivation);
     intentMap.set('Default Welcome Intent', WelcomeIntent);
-    intentMap.set('myFoodProgress', MyFoodProgress);
-    intentMap.set('mypActivityrogress', myActivityrogress);
+    intentMap.set('myFoodProgress', myFoodProgress);
+    intentMap.set('myActivityprogress', myActivityrogress);
     intentMap.set('getSteps', getSteps);
     intentMap.set('AddFoodEntry', addFoodEntry);
     
