@@ -25,6 +25,15 @@ app.post('/webhook', async (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
     const query = req.body.queryResult.queryText;
     
+
+    const addStepGoal = async (agent) => {
+        const params = { "template": "text" };
+        const param_context = { name: "param_context11", lifespan: 10, parameters: params };
+        agent.context.set(param_context);
+        agent.add("Sure please fill out");
+    };
+
+
     const addActivity = async (agent) => {
         const params = { "template": "text" };
         const param_context = { name: "param_context4", lifespan: 10, parameters: params };
@@ -170,6 +179,7 @@ const getSteps = (agent) => {
     intentMap.set('myActivityprogress', myActivityrogress);
     intentMap.set('getSteps', getSteps);
     intentMap.set('AddFoodEntry', addFoodEntry);
+    intentMap.set('addStepGoal', addStepGoal);
     
     agent.handleRequest(intentMap);
 });
