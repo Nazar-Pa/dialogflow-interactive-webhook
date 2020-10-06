@@ -46,9 +46,8 @@ app.post('/webhook', async (req, res) => {
         // let portion = agent.parameters.portion;
         // let dateTime = agent.parameters.date-time;
         const params = { "template": "text" };
-        const param_context = { name: "param_context4", lifespan: 10, parameters: params };
+        const param_context = { name: "param_context9", lifespan: 10, parameters: params };
         agent.context.set(param_context);
-        agent.add("Sure please fill outwwww");
         //agent.add(`The portion is: ${portion} on ${dateTime}`);
     }
 
@@ -180,7 +179,7 @@ const getSteps = (agent) => {
     intentMap.set('myFoodProgress', myFoodProgress);
     intentMap.set('myActivityprogress', myActivityrogress);
     intentMap.set('getSteps', getSteps);
-    intentMap.set('AddFoodEntry', addFoodEntry);
+    intentMap.set('addFoodEntry', addFoodEntry);
     intentMap.set('addStepGoal', addStepGoal);
     
     agent.handleRequest(intentMap);
