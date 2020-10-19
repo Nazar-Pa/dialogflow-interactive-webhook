@@ -122,7 +122,7 @@ app.post('/webhook', async (req, res) => {
     "align": "h", "size":"l", "eventToCall":"android_event" };
     const param_context = { name: "param_context12", lifespan: 2, parameters: params };
     agent.context.set(param_context);
-    //agent.add("OKAY");
+    agent.add("OKAY");
     }
 
 
