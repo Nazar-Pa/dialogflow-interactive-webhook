@@ -109,8 +109,20 @@ app.post('/webhook', async (req, res) => {
     "align": "h", "size":"l", "eventToCall":"android_event" };
     const param_context = { name: "param_context1", lifespan: 10, parameters: params };
     agent.context.set(param_context);
-    agent.add('hi am your your personal virtual assistant, here are my capabilities. What is your name?');
+    agent.add('Greetings! I am your personal physical activity and food journaling bot. you can ask me motivational quotes, set a daily or weekly walking goal or add your activity.');
 };
+
+
+    const UserGaveName = (agent)=>{
+        const params = {"template": "carousel", "carouselItems":[{"id":"1","imgUrl":"https://loremflickr.com/900/500/dog", "title":"<b>Image Title</b><i>(optional)</i>", 
+    "description":"<i>Image description. (optional)</i>","toast":"selected Dog"},{"id":"2","imgUrl":"https://loremflickr.com/900/500/cat", 
+    "title":"<b>Image Title</b><i>(optional)</i>","toast":"selected Cat", "description":"<i>Image description. (optional)</i>"},
+    {"id":"3","imgUrl":"https://loremflickr.com/900/500/owl", "title":"<b>Image Title</b><i>(optional)</i>", "description":"<i>Image description. (optional)</i>","toast":"selected Owl"}], 
+    "buttonItems":[{"uiText":"Select", "actionText":"process selected", "isPositive": true},{"uiText":"Cancel", "actionText":"cancel", "isPositive": false}], 
+    "align": "h", "size":"l", "eventToCall":"android_event" };
+    const param_context = { name: "param_context12", lifespan: 2, parameters: params };
+    agent.context.set(param_context);
+    }
 
 
 const androidIntent = (agent) => {
@@ -187,6 +199,7 @@ const getSteps = (agent) => {
     intentMap.set('getSteps', getSteps);
     intentMap.set('addFoodEntry', addFoodEntry);
     intentMap.set('addStepGoal', addStepGoal);
+    intentMap.set('UserGaveName', UserGaveName);
     
     agent.handleRequest(intentMap);
 });
