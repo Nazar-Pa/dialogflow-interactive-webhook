@@ -134,7 +134,7 @@ const androidIntent = (agent) => {
     //const params = { "template": "hyperlink", "linkItems": [{ "uiText": "Next Activity", "linkType": "internal", "navigateAndroid": "com.tyagiabhinav.dialogflowchat.NavTestActivity", "navigateIOS": "", "isPositive": true }, { "uiText": "Google", "linkType": "external", "navigateAndroid": "http://www.google.com", "navigateIOS": "http://www.google.com", "isPositive": false }], "align": "v", "size": "l" };
     const param_context = { name: "param_context2", lifespan: 10, parameters: params };
     agent.context.set(param_context);
-    agent.add('You can ask me about below tasks');
+    agent.add('Which one you would like to check?');
 };
 
 
