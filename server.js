@@ -161,19 +161,19 @@ const activateMotivation = (agent) => {
     agent.add(JSON.stringify(motivation));
 };
 
-const myFoodProgress = (agent) => {
-    const params = { "template": "text" };
-    const param_context = { name: "param_context7", lifespan: 10, parameters: params };
-    agent.context.set(param_context);
-    agent.add("Your food progress is showing");
-}
+// const myFoodProgress = (agent) => {
+//     const params = { "template": "text" };
+//     const param_context = { name: "param_context7", lifespan: 10, parameters: params };
+//     agent.context.set(param_context);
+//     agent.add("Your food progress is showing");
+// }
 
-const myActivityrogress = (agent) =>{
-    const params = { "template": "text" };
-    const param_context = { name: "param_context10", lifespan: 10, parameters: params };
-    agent.context.set(param_context);
-    agent.add("Your activity progress is showing");
-}
+// const myActivityrogress = (agent) =>{
+//     const params = { "template": "text" };
+//     const param_context = { name: "param_context10", lifespan: 10, parameters: params };
+//     agent.context.set(param_context);
+//     agent.add("Your activity progress is showing");
+// }
 
 const getSteps = (agent) => {
     const params = { "template": "text" };
