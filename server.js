@@ -145,6 +145,17 @@ const androidEvent = (agent) => {
     agent.add('Event captured successfully!');
 };
 
+const Capabilities = (agent)=>{
+    const params = {"template": "carousel", "carouselItems":[{"id":"1","imgUrl":"https://loremflickr.com/900/500/dog", "title":"<b>Image Title</b><i>(optional)</i>", 
+    "description":"<i>Image description. (optional)</i>","toast":"selected Dog"},{"id":"2","imgUrl":"https://loremflickr.com/900/500/cat", 
+    "title":"<b>Image Title</b><i>(optional)</i>","toast":"selected Cat", "description":"<i>Image description. (optional)</i>"},
+    {"id":"3","imgUrl":"https://loremflickr.com/900/500/owl", "title":"<b>Image Title</b><i>(optional)</i>", "description":"<i>Image description. (optional)</i>","toast":"selected Owl"}], 
+    "buttonItems":[{"uiText":"Select", "actionText":"process selected", "isPositive": true},{"uiText":"Cancel", "actionText":"cancel", "isPositive": false}], 
+    "align": "h", "size":"l", "eventToCall":"android_event" };
+    const param_context = { name: "param_context13", lifespan: 2, parameters: params };
+    agent.context.set(param_context);
+    agent.add('Here are my capabilities.');
+}
 
 const activateMotivation = (agent) => {
     const motivatioList = ['Motivation 1', 'Motivation 2', 'Motivation 3', , 'Motivation 4', 'Motivation 5', 'Motivation 6', 'Motivation 7', 'Motivation 8'];
@@ -199,6 +210,7 @@ const getSteps = (agent) => {
     intentMap.set('addFoodEntry', addFoodEntry);
     intentMap.set('addStepGoal', addStepGoal);
     intentMap.set('UserGaveName', UserGaveName);
+    intentMap.set('Capabilities', Capabilities);
     
     agent.handleRequest(intentMap);
 });
