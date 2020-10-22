@@ -155,7 +155,7 @@ const Capabilities = (agent)=>{
     const param_context = { name: "param_context13", lifespan: 2, parameters: params };
     agent.context.set(param_context);
     agent.add('Here are my capabilities.');
-}
+};
 
 const activateMotivation = (agent) => {
     const motivatioList = ['Motivation 1', 'Motivation 2', 'Motivation 3', , 'Motivation 4', 'Motivation 5', 'Motivation 6', 'Motivation 7', 'Motivation 8'];
