@@ -30,7 +30,7 @@ app.post('/webhook', async (req, res) => {
         const params = { "template": "text" };
         const param_context = { name: "param_context11", lifespan: 10, parameters: params };
         agent.context.set(param_context);
-        agent.add("Sure, please give the number of daily steps that you want to reach");
+        agent.add("Sure, please give the number of daily steps that you want to reach and hit SAVE button.");
     };
 
 
